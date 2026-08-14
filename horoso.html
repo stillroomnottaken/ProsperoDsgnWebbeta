@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Designing - Precision Clone</title>
+  <style>
+    /* Global Resets & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f3f3f5;
+      color: #333333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 60px;
+    }
+
+    /* Container Alignment */
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      padding: 0 15px;
+    }
+
+    /* 1. Header Navigation */
+    header {
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      color: #3b4252;
+    }
+
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #d83a75 0%, #3b82f6 100%);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+
+    .logo span {
+      color: #d83a75;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: #555;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding-bottom: 5px;
+
+    }
+
+    .nav-menu a.active {
+      color: #333;
+      border-bottom: 2px solid #d83a75;
+    }
+
+    .nav-subscribe {
+      display: flex;
+      align-items: center;
+      background: #f8f9fa;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 3px 4px 3px 12px;
+    }
+
+    .nav-subscribe input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 0.8rem;
+      color: #666;
+      width: 120px;
+    }
+
+    .btn-pink {
+      background: #d83a75;
+      color: white;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* 2. Hero Section */
+    .hero-container {
+      margin-top: 25px;
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 380px;
+      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .social-icons {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .social-circle {
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #d83a75;
+      font-weight: bold;
+    }
+
+    .hero-title {
+      position: relative;
+      z-index: 2;
+      color: #ffffff;
+      font-size: 2.8rem;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.2;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    /* 3. Filter Controls & Search Bar */
+    .controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 25px 0 20px 0;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 10px;
+    }
+
+    .pill-btn {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #d83a75;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .search-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 220px;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      font-size: 0.8rem;
+      color: #888;
+      width: 100%;
+    }
+
+    /* 4. Main 4-Column Card Grid */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    .card-img-wrap {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: #e2e8f0;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-title {
+      padding: 12px 14px 16px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #333333;
+      line-height: 1.35;
+    }
+
+    .card-placeholder {
+      background: #ffffff;
+      border-radius: 12px;
+      min-height: 220px;
+    }
+
+    /* 5. Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin: 35px 0 45px 0;
+    }
+
+    .page-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #666;
+      cursor: pointer;
+    }
+
+    .page-num.active {
+      background: #d83a75;
+      color: #ffffff;
+      border-color: #d83a75;
+    }
+
+    .page-next {
+      padding: 4px 12px;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      font-size: 0.75rem;
+      color: #666;
+      cursor: pointer;
+    }
+
+    /* 6. Newsletter Banner */
+    .newsletter-banner {
+      background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+      border-radius: 12px;
+      padding: 30px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .newsletter-text h3 {
+      font-size: 1.25rem;
+      color: #2e1065;
+      margin-bottom: 6px;
+    }
+
+    .newsletter-text p {
+      font-size: 0.75rem;
+      color: #6b21a8;
+      max-width: 480px;
+      line-height: 1.4;
+    }
+
+    .newsletter-form {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 4px 4px 4px 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .newsletter-form input {
+      border: none;
+      outline: none;
+      font-size: 0.8rem;
+      color: #666;
+      width: 180px;
+    }
+
+    /* 7. Section Header */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #333333;
+    }
+
+    .section-title span {
+      color: #d83a75;
+    }
+
+    .section-arrows {
+      display: flex;
+      gap: 6px;
+    }
+
+    .arrow-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #d83a75;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Navigation Header -->
+  <header>
+    <div class="container nav-wrapper">
+      <div class="logo">
+        <div class="logo-icon"></div>
+        HOME <span>DESIGNING</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="nav-subscribe">
+        <input type="text" placeholder="✉ your email">
+        <button class="btn-pink">Subscribe</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- 2. Hero Section -->
+    <section class="hero-container">
+      <div class="hero-overlay"></div>
+      <div class="social-icons">
+        <div class="social-circle">f</div>
+        <div class="social-circle">▶</div>
+        <div class="social-circle">𝕏</div>
+        <div class="social-circle">📷</div>
+        <div class="social-circle">p</div>
+      </div>
+      <h1 class="hero-title">Everything Starts at<br>Home</h1>
+    </section>
+
+    <!-- 3. Filter Bar & Search -->
+    <section class="controls-bar">
+      <div class="filter-pills">
+        <button class="pill-btn">Inspirations <span>▾</span></button>
+        <button class="pill-btn">Home Tours <span>▾</span></button>
+        <button class="pill-btn">Product Sets <span>▾</span></button>
+      </div>
+      <div class="search-box">
+        <span style="color: #d83a75; font-size: 0.8rem;">🔍</span>
+        <input type="text" placeholder="Search ...">
+      </div>
+    </section>
+
+    <!-- 4. Main Grid (Row 1) -->
+    <section class="grid-4">
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=400" alt="Kitchen"></div>
+        <div class="card-title">Redefining Nature-Inspired Minimalism In the Verdant Haven</div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400" alt="Living"></div>
+        <div class="card-title">A Modern Home In Beige With Earthy Brown Accents</div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1540518614846-7ede433c5163?w=400" alt="Bedroom"></div>
+        <div class="card-title">When Bold Lines Meet Tender Details: The Art Of Modern Living</div>
+      </div>
+      <div class="card-placeholder"></div>
+
+      <!-- Main Grid (Row 2) -->
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=400" alt="Decor"></div>
+        <div class="card-title">The Arch Moment: 4 Affordable Pieces That Bring The Shape Into Any Room</div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400" alt="Villa"></div>
+        <div class="card-title">Explore a Villa with Green Roofs and Seamless Indoor-Outdoor Living</div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400" alt="Bathroom"></div>
+        <div class="card-title">The Bathroom Counter Reset: 3 Pieces That Hide Everything Ugly</div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400" alt="Double Height"></div>
+        <div class="card-title">Warm Wood Tones and Double-Height Minimalist Luxury</div>
+      </div>
+
+      <!-- Main Grid (Row 3) -->
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400" alt="Plant"></div>
+        <div class="card-title">How To Blend Mediterranean Charm And Art Deco Luxury Without The Glitz</div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=400" alt="Interior"></div>
+        <div class="card-title">Drawer Pulls That Cost Under $100 and Look Like a Full Kitchen Reno</div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400" alt="Furniture"></div>
+        <div class="card-title">Exploring Creative Comfort and Luxury Decor in Dubai</div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400" alt="Cozy"></div>
+        <div class="card-title">The Plate Wall Comeback: 15 Ways to Do It Without Looking Like a Farmhouse Airbnb</div>
+      </div>
+    </section>
+
+    <!-- 5. Pagination -->
+    <div class="pagination">
+      <div class="page-num active">1</div>
+      <div class="page-num">2</div>
+      <div class="page-num">3</div>
+      <div class="page-num">...</div>
+      <div class="page-num">41</div>
+      <div class="page-num">42</div>
+      <div class="page-next">Next ›</div>
+    </div>
+
+    <!-- 6. Newsletter Subscription Banner -->
+    <section class="newsletter-banner">
+      <div class="newsletter-text">
+        <h3>Subscribe to our newsletter</h3>
+        <p>Join a growing community of over 20,000 design enthusiasts and get exclusive insights, insider content, and hand-picked articles delivered to your inbox weekly.</p>
+      </div>
+      <div class="newsletter-form">
+        <input type="text" placeholder="✉ your email">
+        <button class="btn-pink">Subscribe</button>
+      </div>
+    </section>
+
+    <!-- 7. Top Hits Section -->
+    <div class="section-header">
+      <div class="section-title">
+        <span>📌</span> Top Hits
+      </div>
+      <div class="section-arrows">
+        <div class="arrow-btn">‹</div>
+        <div class="arrow-btn">›</div>
+      </div>
+    </div>
+
+    <section class="grid-4">
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400" alt="Shelves"></div>
+        <div class="card-title">51 Unique Wall Shelves That Make Storage Look Beautiful</div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400" alt="Reading Chair"></div>
+        <div class="card-title">51 Comfortable Reading Chairs To Help You Get Lost In Your Literary World</div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1540518614846-7ede433c5163?w=400" alt="Bedroom"></div>
+        <div class="card-title">25 Luxury Bedroom Design Ideas</div>
+      </div>
+      <div class="card">
+        <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400" alt="Black Kitchen"></div>
+        <div class="card-title">35 Stunning Black Kitchens That Tempt You To Go Dark For Your Next Remodel</div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
